@@ -24,7 +24,8 @@ const corsOptions = {
   origin: [
     'http://localhost:4200',
     'https://tradeaifusion.com',
-    'https://www.tradeaifusion.com'
+    'https://www.tradeaifusion.com',
+    'https://sep202609-ui.vercel.app'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
