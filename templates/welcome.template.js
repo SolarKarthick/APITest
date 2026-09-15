@@ -1,5 +1,5 @@
-const BRAND = 'TradeAIGrow';
-const SITE_URL = 'https://tradeaigrow.com';
+const BRAND = 'TradeAIFusion';
+const SITE_URL = 'https://tradeaifusion.com';
 
 const welcomeTemplate = (activationCode) => {
   const year = new Date().getFullYear();

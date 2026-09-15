@@ -1,5 +1,5 @@
-const BRAND = 'TradeAIGrow';
-const SITE_URL = 'https://www.tradeaigrow.com/auth/reset-password';
+const BRAND = 'TradeAIFusion';
+const SITE_URL = 'https://www.tradeaifusion.com/auth/reset-password';
 
 const passwordResetTemplate = (token,email) => {
   const year = new Date().getFullYear();

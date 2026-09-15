@@ -23,8 +23,8 @@ const PORT = process.env.PORT || 8000;
 const corsOptions = {
   origin: [
     'http://localhost:4200',
-    'https://tradeaigrow.com',
-    'https://www.tradeaigrow.com'
+    'https://tradeaifusion.com',
+    'https://www.tradeaifusion.com'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
