@@ -12,7 +12,8 @@ const PORT = process.env.PORT || 8000;
 // CORS Configuration - Allow requests from Angular dev server
 const corsOptions = {
   origin: [
-    'http://localhost:4200'
+    'http://localhost:4200',
+    'https://ui-test-sepia-rho.vercel.app'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
