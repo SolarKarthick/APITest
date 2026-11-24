@@ -1,26 +1,12 @@
 const authService = require('../services/authService');
-const { sendMail } = require('../services/mail.service');
-const { welcomeTemplate } = require('../templates/welcome.template');
 const ActivationCodeService = require('../services/activationCode.service');
-const { passwordResetTemplate } = require('../templates/passwordReset.template');
 
 class AuthController {
   async register(req, res, next) {
     try {
       const { email } = req.body;
       const result = await authService.register(email);
-       const code = await ActivationCodeService.generateActivationCode(email);
-      // call email service here (after successful register)
-      try {
-        await sendMail({
-          to: email,
-          subject: 'Welcome!',
-          html: welcomeTemplate(code)
-        });
-      } catch (mailError) {
-        // do not block registration if email fails
-        console.error('Welcome email failed:', mailError);
-      }
+      await ActivationCodeService.generateActivationCode(email);
       res.status(201).json({
         success: true,
         message: 'User registered successfully',
@@ -85,19 +71,9 @@ class AuthController {
       const { email } = req.body;
       const result = await authService.forgotPassword(email);
 
-      try {
-        await sendMail({
-          to: email,
-          subject: 'Password Reset Link',
-          html: passwordResetTemplate(result.token,email)
-        });
-      } catch (mailError) {
-        console.error('Password reset link email failed:', mailError);
-      }
-
       return res.status(200).json({
         success: true,
-        message: 'Password reset link sent successfully to your email inbox',
+        message: 'Password reset token generated successfully',
         data: { expiresAt: result.expiresAt }
       });
     } catch (error) {
