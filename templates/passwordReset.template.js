@@ -1,5 +1,5 @@
-const BRAND = 'TradeAIFusion';
-const SITE_URL = 'https://www.tradeaifusion.com/auth/reset-password';
+const BRAND = 'Aurexion';
+const SITE_URL = 'https://www.aurexion.com/auth/reset-password';
 
 const passwordResetTemplate = (token,email) => {
   const year = new Date().getFullYear();

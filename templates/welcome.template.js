@@ -1,5 +1,5 @@
-const BRAND = 'TradeAIFusion';
-const SITE_URL = 'https://tradeaifusion.com';
+const BRAND = 'Aurexion';
+const SITE_URL = 'https://aurexion.com';
 
 const welcomeTemplate = (activationCode) => {
   const year = new Date().getFullYear();

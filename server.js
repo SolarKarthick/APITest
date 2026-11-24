@@ -4,17 +4,7 @@ require('dotenv').config();
 require('./config/firebase/firebase');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
-const AIRoutes = require('./routes/AIRoutes')
-const depositRoutes = require('./routes/deposit.routes');
-const withdrawRoutes = require('./routes/withdraw.routes');
-const spotTradeRoutes = require('./routes/spotTrade.routes');
-const commodityTradeRoutes = require('./routes/commodityTrade.routes');
-const verificationRoutes = require('./routes/verification.routes');
-const marketDataRoutes = require('./routes/marketData.routes');
-const forexTradeRoutes = require('./routes/forexTrade.routes');
 const adminRoutes = require('./routes/admin.routes');
-const notificationRoutes = require('./routes/notification.routes');
-
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -22,10 +12,7 @@ const PORT = process.env.PORT || 8000;
 // CORS Configuration - Allow requests from Angular dev server
 const corsOptions = {
   origin: [
-    'http://localhost:4200',
-    'https://tradeaifusion.com',
-    'https://www.tradeaifusion.com',
-    'https://sep202609-ui.vercel.app'
+    'http://localhost:4200'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
@@ -43,16 +30,7 @@ app.get('/', (req, res) => {
 });
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
-app.use('/api/ai-trade', AIRoutes);
-app.use('/api/deposit', depositRoutes);
-app.use('/api/withdraw', withdrawRoutes);
-app.use('/api/spot-trade', spotTradeRoutes);
-app.use('/api/commodity-trade', commodityTradeRoutes);
-app.use('/api/verification', verificationRoutes);
-app.use('/api/market-data', marketDataRoutes);
-app.use('/api/forex-trade', forexTradeRoutes);
 app.use('/api/admin', adminRoutes);
-app.use('/api/notifications', notificationRoutes);
 
 // 404 Handler
 app.use((req, res) => {
